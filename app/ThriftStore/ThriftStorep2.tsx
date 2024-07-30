@@ -11,19 +11,15 @@ const loadFonts = () => {
     return Font.loadAsync({
       'Italiana-Regular': require('../../assets/fonts/Italiana-Regular.ttf'),
     });
-  };
-  
+};
   const ThriftStorep2 = () => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
-  
     useEffect(() => {
       loadFonts().then(() => setFontsLoaded(true));
     }, []);
-  
     if (!fontsLoaded) {
       return <AppLoading />;
     }
-  
     return (
         <SafeAreaView style={styles.safeArea}>
         <Thriftp2Head />

@@ -1,29 +1,30 @@
 {
   "expo": {
-    "name": "myntra",
-    "slug": "myntra",
+    "name": "MyntraFWD",
+    "slug": "myntrafwd",
     "version": "1.0.0",
     "orientation": "portrait",
     "scheme": "myapp",
+    "icon": "./assets/images/myntralogo.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff",
-      "image": ".assets/images/myntralogo"
+      "image": "./assets/images/myntralogo.png"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": ".assets/images/myntralogo",
+        "foregroundImage": "./assets/images/myntralogo.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": ".assets/images/myntralogo"
+      "favicon": "./assets/images/myntralogo.png"
     },
     "plugins": [
       "expo-router",
@@ -31,6 +32,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "5c82e21d-1014-42b8-9c32-16c59d3adec3"
+      }
+    },
+    "owner": "aney.shamika",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/5c82e21d-1014-42b8-9c32-16c59d3adec3"
     }
   }
 }

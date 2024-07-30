@@ -1,5 +1,7 @@
 
 import React from 'react';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import IHp3 from './InfluencerHub/IHp3';
 import ThriftStorep1 from './ThriftStore/ThriftStorep1';

@@ -5,7 +5,7 @@ const Content = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/thriftp1img2.png')}
+        source={require('../../assets/images/thriftp1img2.jpg')}
         style={styles.image}
       />
       <Text style={styles.text}>Myntra's Very Own Thrift Store</Text>
@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
     fontSize: 35,
     color: 'white',
     zIndex: 10,
-    top: '75%',  // Adjusts vertical position
-    left: '25%', // Adjusts horizontal position
-    transform: [{ translateX: -50 }, { translateY: -50 }],  // Centers the text
+    top: '25%', 
+    left: '25%', 
+    transform: [{ translateX: -50 }, { translateY: -50 }],  
     textAlign: 'center',
-    width: '80%', // Ensures text is centered within the width of the image
+    width: '80%', 
   },
 });
 

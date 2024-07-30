@@ -1,30 +1,54 @@
-// CardGrid.js
-import React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, View, StyleSheet, ActivityIndicator } from 'react-native';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebaseConfig';
 import Card from './Card';
 
+// Define the interface for card data
+interface CardData {
+  image: { uri: string };
+  name: string;
+  price: string;
+  productId: string; // Add productId to CardData
+}
+
 const CardGrid = () => {
-  const cards = [
-    { image: require('../../assets/images/card11.png'), name: 'Rigo', price: '699/-' },
-    { image: require('../../assets/images/card7.png'), name: 'Levis', price: '899/-' },
-    { image: require('../../assets/images/card3.png'), name: 'Cap', price: '199/-' },
-    { image: require('../../assets/images/card4.png'), name: 'Jacket', price: '799/-' },
-    { image: require('../../assets/images/card6.png'), name: 'Shrug', price: '799/-' },
-    { image: require('../../assets/images/card2.png'), name: 'Jacket', price: '499/-' },
-    { image: require('../../assets/images/card8.png'), name: 'Pants', price: '999/-' },
-    { image: require('../../assets/images/card9.png'), name: 'Purse', price: '999/-' },
-    { image: require('../../assets/images/card10.png'), name: 'Jeans', price: '799/-' },
-    { image: require('../../assets/images/card12.png'), name: 'Jacket', price: '799/-' },
-    { image: require('../../assets/images/card1.png'), name: 'Shirt', price: '599/-' },
-    { image: require('../../assets/images/card5.png'), name: 'Shoes', price: '999/-' },
-    // Add more card objects here
-  ];
+  const [cards, setCards] = useState<CardData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'products'));
+        const products = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        const cardsData: CardData[] = products.map((product: any) => ({
+          image: { uri: product.images[0] },
+          name: product.productName,
+          price: product.price,
+          productId: product.id, // Ensure productId is included
+        }));
+
+        setCards(cardsData);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {cards.map((card, index) => (
         <View style={styles.cardContainer} key={index}>
-          <Card image={card.image} name={card.name} price={card.price} />
+          <Card image={card.image} name={card.name} price={card.price} productId={card.productId} />
         </View>
       ))}
     </ScrollView>
@@ -36,11 +60,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 10,
-    columnGap:30,
-    marginLeft:35,
+    columnGap: 30,
+    marginLeft: 35,
   },
   cardContainer: {
-    width: '40 %',
+    width: '40%',
   },
 });
 

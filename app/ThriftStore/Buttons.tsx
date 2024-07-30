@@ -5,15 +5,20 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../_layout';
 
 type ButtonsNavigationProp = StackNavigationProp<RootStackParamList, 'App'>;
+
 const Buttons = () => {
   const navigation = useNavigation<ButtonsNavigationProp>();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.text} onPress={() => navigation.navigate('ThriftStorep2')}>Buy</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.text} onPress={() => navigation.navigate('SellScreen')}>Sell</Text>
+        <Text style={styles.text} onPress={() => navigation.navigate('TermsConditions')}>Register Your Store</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.text} onPress={() => navigation.navigate('TermsandConditions')}>Connect with a store </Text>
       </TouchableOpacity>
     </View>
   );
@@ -21,24 +26,23 @@ const Buttons = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: 'column',
+    gap: 10,
     alignItems: 'center',
     marginTop: 30,
   },
   button: {
-    width:150,
+    width: '80%',
     height: 60,
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: '#F9426E',
     borderRadius: 15,
-    paddingVertical: 5,
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     fontFamily: 'Italiana-Regular',
-    marginLeft: 25, 
-    fontSize: 35,
+    fontSize: 28,
     color: 'black',
   },
 });

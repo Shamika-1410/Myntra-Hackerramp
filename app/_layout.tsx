@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-get-random-values';
 import IHp3 from './InfluencerHub/IHp3';
 import IHp4 from './InfluencerHub/IHp4';
 import ThriftStorep1 from './ThriftStore/ThriftStorep1';
@@ -8,6 +9,9 @@ import ThriftStorep2 from './ThriftStore/ThriftStorep2';
 import SellScreen from  './ThriftStore/SellScreen';
 import ConfirmPage from  './ThriftStore/ConfirmPage';
 import ThriftPickUp from  './ThriftStore/ThriftPickUp';
+import TermsConditions from  './ThriftStore/TermsConditions';
+import TermsandConditions from  './ThriftStore/TermsandConditions';
+import Stores from  './ThriftStore/Stores';
 import TrendHome from './TrendWave/TrendHome';
 import SecondPage from './InfluencerHub/SecondPage';
 import HomePage from './InfluencerHub/Homepage';
@@ -15,6 +19,9 @@ import StyleCircle from './InfluencerHub/StyleCircle';
 import InfluencerPage from './InfluencerHub/InfuencerPage';
 import Channel from './InfluencerHub/Channel';
 import Cosmetics from './InfluencerHub/Cosmetics';
+import CarouselScreen from './ThriftStore/CarouselScreen';
+import ThriftStoreRegistration from './ThriftStore/ThriftStoreRegistration';
+import ProductCard from './ThriftStore/ProductCard';
 
 export type RootStackParamList = {
   App: undefined;
@@ -32,6 +39,12 @@ export type RootStackParamList = {
   InfluencerPage:undefined;
   Channel:undefined;
   Cosmetics:undefined;
+  CarouselScreen:undefined;
+  TermsConditions:undefined;
+  TermsandConditions:undefined;
+  Stores:undefined;
+  ThriftStoreRegistration:undefined;
+  ProductCard:{ productId: string };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -53,6 +66,12 @@ function _layout() {
         <Stack.Screen name="InfluencerPage" component={InfluencerPage} options={{ headerShown: false }} />
         <Stack.Screen name="Channel" component={Channel} options={{ headerShown: false }} />
         <Stack.Screen name="Cosmetics" component={Cosmetics} options={{ headerShown: false }} />
+        <Stack.Screen name="CarouselScreen" component={CarouselScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="TermsConditions" component={TermsConditions} options={{ headerShown: false }} />
+        <Stack.Screen name="TermsandConditions" component={TermsandConditions} options={{ headerShown: false }} />
+        <Stack.Screen name="Stores" component={Stores} options={{ headerShown: false }} />
+        <Stack.Screen name="ThriftStoreRegistration" component={ThriftStoreRegistration} options={{ headerShown: false }} />
+        <Stack.Screen name="ProductCard" component={ProductCard} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

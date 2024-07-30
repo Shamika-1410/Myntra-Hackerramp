@@ -6,8 +6,6 @@ import Content from './Content';
 import Footer from '../Footer';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
-
-
 const loadFonts = () => {
   return Font.loadAsync({
     'Italiana-Regular': require('../../assets/fonts/Italiana-Regular.ttf'),

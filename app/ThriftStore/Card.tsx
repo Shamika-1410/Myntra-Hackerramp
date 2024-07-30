@@ -1,34 +1,47 @@
-// Card.js
 import React from 'react';
 import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../_layout';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+type CardNavigationProp = StackNavigationProp<RootStackParamList, 'App'>;
 
 interface CardProps {
-    image: ImageSourcePropType;
-    name: string;
-    price: string;
-  }
-  const Card: React.FC<CardProps> = ({ image, name, price }) => {
+  image: ImageSourcePropType;
+  name: string;
+  price: string;
+  productId: string; // Add productId to Card props
+}
+
+const Card: React.FC<CardProps> = ({ image, name, price, productId }) => {
+  const navigation = useNavigation<CardNavigationProp>();
+
+  const handlePress = () => {
+    navigation.navigate('ProductCard', { productId });
+  };
+
   return (
     <View style={styles.card}>
-      <Image source={image} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.price}>{price}</Text>
-      </View>
+      <TouchableOpacity onPress={handlePress}>
+        <Image source={image} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.name}>{name}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    width: '100%', // Adjust width according to your layout
+    width: '100%',
     marginBottom: 20,
   },
   image: {
     width: '100%',
     height: 200,
     borderRadius: 20,
-    marginRight:40,
   },
   textContainer: {
     position: 'absolute',
