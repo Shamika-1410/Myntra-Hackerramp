@@ -49,7 +49,11 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-## Team Code Couture
+## 👥 Team Code Couture
+
+This project was made as part of the **Myntra HackerRamp 2024 Hackathon**, where our team was **selected among the top 70 teams in Pre-Finale round**.
+
+**Team Members:**
 
 - Aboli Patne
 - Rashi Potey
