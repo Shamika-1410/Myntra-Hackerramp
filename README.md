@@ -55,6 +55,6 @@ This project was made as part of the **Myntra HackerRamp 2024 Hackathon**, where
 
 **Team Members:**
 
-- Aboli Patne
-- Rashi Potey
-- Shamika Aney
+- [Aboli Patne](https://github.com/abolipatne01)
+- [Rashi Potey](https://github.com/Rashipotey)
+- [Shamika Aney](https://github.com/Shamika-1410)
