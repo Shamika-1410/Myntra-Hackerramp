@@ -54,7 +54,7 @@ Join our community of developers creating universal apps.
 
 ## 👥 Team Code Couture
 
-This project was made as part of the **Myntra HackerRamp 2024 Hackathon**, where our team was **selected among the top 70 teams in Pre-Finale round**.
+This project was made as part of the **Myntra HackerRamp 2024 Hackathon**, where our team was **selected among the top 70 teams in Pre-Finale round at the National Level ( India )**.
 
 **Team Members:**
 
